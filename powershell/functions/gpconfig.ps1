@@ -40,10 +40,17 @@ save <name>       Save the current file with the specified name
     if ( $1 -eq "change" ){
         if ($2 -eq $null){
             Write-Error '❌ A config name must be specified' -ErrorAction Stop
+            Return
         }
-        cp $CONFIG_PATH/config_$1.xml $DEBUG_PATH/config.xml
-        Write-Output "✔️ Config file changed to config_$1.xml"
-        Return
+
+        if (Test-Path -Path $CONFIG_PATH/config_$2.xml){
+            cp $CONFIG_PATH/config_$2.xml $DEBUG_PATH/config.xml
+            Write-Output "✔️ Config file changed to config_$2.xml"
+            Return
+        }else{
+            Write-Error "❌ Config file $2 does not exist" -ErrorAction Stop
+            Return
+        }
     }
 
     Write-Error '❌ Invalid argument. Try using gpconfig help' -ErrorAction Stop
