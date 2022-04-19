@@ -31,7 +31,7 @@ Set the `.config\powershell\env.ps1` enviornment variable values
 ### Oh my posh 💻
 Prompt framework
 ```
-Install-Module push-git -Scope CurrentUser -Force
+Install-Module posh-git -Scope CurrentUser -Force
 Install-Module oh-my-posh -Scope CurrentUser -Force
 ```
 
