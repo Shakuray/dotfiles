@@ -18,9 +18,6 @@ Set-PSReadLineOption -PredictionSource History
 Import-Module PSFzf
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
 
-# Env
-$env:GIT_SSH = "C:\Windows\system32\OpenSSH\ssh.exe"
-
 # Alias
 Set-Alias -Name vim -Value nvim
 Set-Alias ll ls
@@ -35,4 +32,4 @@ function which ($command) {
     Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
 }
 
-function cdc { set-location "C:\PROJECTS\" }
+function cdc { set-location $env:PROJ_PATH }
