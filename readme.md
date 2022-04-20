@@ -69,5 +69,7 @@ Install-Module -Name PSFzf -Scope CurrentUser -Force
 
 `dockermachine` is a ssh office dockermachine shortcut
 
+`cdc` change current directory to your code directory
+
 ## Aliases ✂️
 `ll` shortcut for `ls -l`
