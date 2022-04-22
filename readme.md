@@ -10,7 +10,7 @@ Install the latest `Hack NF` font of the [ryanoasis/nerd-fonts](https://github.c
 Powershell dependency manager
 ```
 iwr -useb get.scoop.sh | iex
-scoop install curl sudo jq
+scoop install curl sudo jq neovim gcc
 ```
 
 Edit file `$PROFILE.CurrentUserCurrentHost` and add the following line:
