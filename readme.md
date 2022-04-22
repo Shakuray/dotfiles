@@ -13,20 +13,18 @@ iwr -useb get.scoop.sh | iex
 scoop install curl sudo jq
 ```
 
-Edit file `$PROFILE.CurrentUserCurrentHost`
-And add the following lines
+Edit file `$PROFILE.CurrentUserCurrentHost` and add the following line:
 ```
 . $env:USERPROFILE\.config\powershell\user_profile.ps1
-
-# env
-. $env:USERPROFILE\.config\powershell\env.ps1
-
-# Functions
-. $env:USERPROFILE\.config\powershell\functions\dockermachine.ps1
-. $env:USERPROFILE\.config\powershell\functions\gpconfig.ps1
 ```
 
 Set the `.config\powershell\env.ps1` enviornment variable values
+```
+# Env
+$env:GIT_SSH = "C:\Windows\system32\OpenSSH\ssh.exe"
+$env:PROJ_PATH = "C:\PROJECTS\"
+$env:GP_PATH = $env:PROJ_PATH + "gestpath"
+```
 
 ### Oh my posh 💻
 Prompt framework
@@ -70,6 +68,8 @@ Install-Module -Name PSFzf -Scope CurrentUser -Force
 `dockermachine` is a ssh office dockermachine shortcut
 
 `cdc` change current directory to your code directory
+
+`killspoty` 🔪 kills all bugged spotify processes, what else?
 
 ## Aliases ✂️
 `ll` shortcut for `ls -l`
