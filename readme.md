@@ -71,5 +71,7 @@ Install-Module -Name PSFzf -Scope CurrentUser -Force
 
 `killspoty` 🔪 kills all bugged spotify processes, what else?
 
+`killsteam` 🔪 same but for steam
+
 ## Aliases ✂️
 `ll` shortcut for `ls -l`
