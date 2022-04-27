@@ -30,7 +30,7 @@ $env:GP_PATH = $env:PROJ_PATH + "gestpath"
 Prompt framework
 ```
 Install-Module posh-git -Scope CurrentUser -Force
-Install-Module oh-my-posh -Scope CurrentUser -Force
+winget install JanDeDobbeleer.OhMyPosh
 ```
 
 ### Terminal Icons
