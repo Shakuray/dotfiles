@@ -33,7 +33,7 @@ save <name>       Save the current file with the specified name
             Write-Error '❌ A config name must be specified' -ErrorAction Stop
         }
         cp $DEBUG_PATH/config.xml $CONFIG_PATH/config_$2.xml
-        Write-Output "💾 Current config file saved as config_$2.xml"
+        Write-Host "💾 Current config file saved as config_$2.xml" -ForegroundColor Green -NoNewline
         Return
     }
 
@@ -45,7 +45,7 @@ save <name>       Save the current file with the specified name
 
         if (Test-Path -Path $CONFIG_PATH/config_$2.xml){
             cp $CONFIG_PATH/config_$2.xml $DEBUG_PATH/config.xml
-            Write-Output "✔️ Config file changed to config_$2.xml"
+            Write-Host "✔️ Config file changed to config_$2.xml" -ForegroundColor Green -NoNewline
             Return
         }else{
             Write-Error "❌ Config file $2 does not exist" -ErrorAction Stop

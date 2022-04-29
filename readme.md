@@ -24,6 +24,7 @@ Set the `.config\powershell\env.ps1` enviornment variable values
 $env:GIT_SSH = "C:\Windows\system32\OpenSSH\ssh.exe"
 $env:PROJ_PATH = "C:\PROJECTS\"
 $env:GP_PATH = $env:PROJ_PATH + "gestpath"
+$env:GPAPI_PATH = $env:PROJ_PATH + "gpapi"
 ```
 
 ### Oh my posh 💻
@@ -64,6 +65,8 @@ Install-Module -Name PSFzf -Scope CurrentUser -Force
 
 ## Commands 🤖
 `gpconfig` is a gp config swapper. See `gpconfig help` for more info.
+
+`gpapiconfig` is a gpapi config swapper. See `gpapiconfig help` for more info.
 
 `dockermachine` is a ssh office dockermachine shortcut
 
