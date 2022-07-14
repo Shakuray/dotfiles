@@ -5,7 +5,6 @@
   "quoteProps": "as-needed",
   "bracketSpacing": true,
   "bracketSameLine": false,
-  "proseWrap": "always",
-  "printWidth": 80,
+  "printWidth": 150,
   "vueIndentScriptAndStyle": true
 }
