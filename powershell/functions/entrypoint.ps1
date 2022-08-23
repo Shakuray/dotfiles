@@ -9,3 +9,4 @@
 . $env:USERPROFILE\.config\powershell\functions\killspoty.ps1
 . $env:USERPROFILE\.config\powershell\functions\killsteam.ps1
 . $env:USERPROFILE\.config\powershell\functions\clearmysql.ps1
+. $env:USERPROFILE\.config\powershell\functions\awslogin.ps1
