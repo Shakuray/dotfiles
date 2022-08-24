@@ -24,7 +24,7 @@ save <name>       Save the current file with the specified name
     }
 
     if ( $1 -eq "edit" ){
-        nvim $DEBUG_PATH/config.xml
+        code $DEBUG_PATH/config.xml
         Return
     }
 

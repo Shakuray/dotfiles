@@ -1,3 +1,4 @@
 powershell/functions/gpconfig-files/*.xml
 powershell/functions/gpapiconfig-files/*.yml
+powershell/functions/sphapiconfig-files/.env*
 powershell/env.ps1

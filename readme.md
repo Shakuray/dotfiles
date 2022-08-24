@@ -31,6 +31,7 @@ $env:GIT_SSH = "C:\Windows\system32\OpenSSH\ssh.exe"
 $env:PROJ_PATH = "C:\PROJECTS\"
 $env:GP_PATH = $env:PROJ_PATH + "gestpath"
 $env:GPAPI_PATH = $env:PROJ_PATH + "gpapi"
+$env:SPHAPI_PATH = $env:PROJ_PATH + "sphere-api"
 ```
 
 ### Oh my posh 💻
@@ -84,6 +85,8 @@ Install-Module -Name PSFzf -Scope CurrentUser -Force
 `gpversion` is a gp version manager. See `gpversion help` for more info.
 
 `gpapiconfig` is a gpapi config swapper. See `gpapiconfig help` for more info.
+
+`sphapiconfig` is a Sphere api config swapper. See `sphapiconfig help` for more info.
 
 `dockermachine` is a ssh office dockermachine shortcut
 
