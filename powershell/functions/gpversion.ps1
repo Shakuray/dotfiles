@@ -16,7 +16,6 @@ set <version>     Set the version sent by parameter
     }
 
     $file = "$env:GP_PATH\SP06ICH001\My Project\AssemblyInfo.vb"
-    $fileObject = get-item $file
 
     $sr = new-object System.IO.StreamReader( $file, [System.Text.Encoding]::GetEncoding("utf-8") )
     $content = $sr.ReadToEnd()
@@ -37,15 +36,44 @@ set <version>     Set the version sent by parameter
 
     if ( $mode -eq "add" -or $mode -eq "set" ){
         Write-Host " $currentVersion  $newVersion" -ForegroundColor Green
-
-        $content = [Regex]::Replace($content, "(\d+)\.(\d+)\.(\d+)[\.(\d+)]*", $newVersion);
-
-        $sw = new-object System.IO.StreamWriter( $file, $false, [System.Text.Encoding]::GetEncoding("utf-8") )
-        $sw.Write( $content )
-        $sw.Close()
-        Return
+        setGestPathVersion $newVersion
+        setGPAPIVersion $newVersion
+        return $newVersion
     }
 
     Write-Error '❌ Invalid argument. Try using gpversion help' -ErrorAction Stop
 
+}
+
+function setGestPathVersion($version) {
+    $file = "$env:GP_PATH\SP06ICH001\My Project\AssemblyInfo.vb"
+
+    $sr = new-object System.IO.StreamReader( $file, [System.Text.Encoding]::GetEncoding("utf-8") )
+    $content = $sr.ReadToEnd()
+    $sr.Close()
+
+    $content = [Regex]::Replace($content, "(\d+)\.(\d+)\.(\d+)[\.(\d+)]*", $newVersion);
+
+    $sw = new-object System.IO.StreamWriter( $file, $false, [System.Text.Encoding]::GetEncoding("utf-8") )
+    $sw.Write( $content )
+    $sw.Close()
+    
+    Return    
+}
+
+function setGPAPIVersion($version) {
+    $file = "$env:GPAPI_PATH\pom.xml"
+
+    $sr = new-object System.IO.StreamReader( $file, [System.Text.Encoding]::GetEncoding("utf-8") )
+    $content = $sr.ReadToEnd()
+    $sr.Close()
+
+    [regex]$pattern = "<version>(\d+)\.(\d+)\.(\d+)[\.(\d+)]*<\/version>"
+    $content = $pattern.replace($content, "<version>$newVersion</version>", 1);
+
+    $sw = new-object System.IO.StreamWriter( $file, $false, [System.Text.Encoding]::GetEncoding("utf-8") )
+    $sw.Write( $content )
+    $sw.Close()
+
+    Return
 }
