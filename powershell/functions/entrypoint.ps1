@@ -4,6 +4,7 @@
 # Functions
 . $env:USERPROFILE\.config\powershell\functions\dockermachine.ps1
 . $env:USERPROFILE\.config\powershell\functions\gpversion.ps1
+. $env:USERPROFILE\.config\powershell\functions\gpversionold.ps1
 . $env:USERPROFILE\.config\powershell\functions\gpversiongit.ps1
 . $env:USERPROFILE\.config\powershell\functions\gpconfig.ps1
 . $env:USERPROFILE\.config\powershell\functions\sphapiconfig.ps1
