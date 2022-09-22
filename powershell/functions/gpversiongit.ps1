@@ -1,6 +1,7 @@
 function gpversiongit($mode, $newVersion)
 {
     cd $env:GP_PATH
+    git checkout 2.5
     git fetch --all --tags
     git pull
     
@@ -27,7 +28,8 @@ function gpversiongit($mode, $newVersion)
 
 function gpversiongitold($mode, $newVersion)
 {
-    cd $env:GP_PATH_OLD
+    cd $env:GP_PATH
+    git checkout 2.4.5 #Only difference with gpversiongit
     git fetch --all --tags
     git pull
     
@@ -35,10 +37,10 @@ function gpversiongitold($mode, $newVersion)
     git fetch --all --tags
     git pull
     
-    $newversion = gpversionold $mode $newVersion
+    $newversion = gpversion $mode $newVersion
 
-    cd $env:GP_PATH_OLD
-    git add "$env:GP_PATH_OLD\SP06ICH001\My Project\AssemblyInfo.vb"
+    cd $env:GP_PATH
+    git add "$env:GP_PATH\SP06ICH001\My Project\AssemblyInfo.vb"
     git commit -m "Release: $newVersion"
     git tag $newVersion
     git push --tags
