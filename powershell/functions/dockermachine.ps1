@@ -1,3 +1,3 @@
 function dockermachine{
-    ssh oriol@192.168.2.31
+    ssh dev@192.168.2.31
 }
