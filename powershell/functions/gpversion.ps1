@@ -10,6 +10,7 @@ Commands          Action
 ===============================================================================
 get               Retrieve the current version
 add               Increase the revision by 1 (major.minor.build.revision)
+hotfix            Increase the build by 1 (major.minor.build.revision)
 set <version>     Set the version sent by parameter
         "
         Return
@@ -21,7 +22,7 @@ set <version>     Set the version sent by parameter
     $content = $sr.ReadToEnd()
     $sr.Close()
 
-    $reg = [regex]"(\d+)\.(\d+)\.(\d+)[\.(\d+)]*"
+    $reg = [regex]"(\d+)\.(\d+)\.(\d+)"
     $currentVersion = $reg.Match($content).Value
     
     if ( $mode -eq "get" ){
@@ -31,13 +32,17 @@ set <version>     Set the version sent by parameter
 
     if ( $mode -eq "add" ){
         $versionSplit = $currentVersion.Split(".")
-        $newVersion = $versionSplit[0] + "." + $versionSplit[1] + "." + $versionSplit[2] + "." + (([int]$versionSplit[3]) + 1)
+        $newVersion = $versionSplit[0] + "." + (([int]$versionSplit[1]) + 1) + ".0" 
     }
 
-    if ( $mode -eq "add" -or $mode -eq "set" ){
+    if ( $mode -eq "hotfix" ){
+        $versionSplit = $currentVersion.Split(".")
+        $newVersion = $versionSplit[0] + "." + $versionSplit[1] + "." + (([int]$versionSplit[2]) + 1)
+    }
+
+    if ( $mode -eq "add" -or $mode -eq "hotfix" -or $mode -eq "set" ){
         Write-Host " $currentVersion  $newVersion" -ForegroundColor Green
         setGestPathVersion $newVersion
-        setGPAPIVersion $newVersion
         return $newVersion
     }
 
@@ -52,7 +57,7 @@ function setGestPathVersion($version) {
     $content = $sr.ReadToEnd()
     $sr.Close()
 
-    $content = [Regex]::Replace($content, "(\d+)\.(\d+)\.(\d+)[\.(\d+)]*", $newVersion);
+    $content = [Regex]::Replace($content, "(\d+)\.(\d+)\.(\d+)", $newVersion);
 
     $sw = new-object System.IO.StreamWriter( $file, $false, [System.Text.Encoding]::GetEncoding("utf-8") )
     $sw.Write( $content )
