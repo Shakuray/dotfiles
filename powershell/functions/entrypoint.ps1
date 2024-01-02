@@ -6,6 +6,7 @@
 . $env:USERPROFILE\.config\powershell\functions\gpversion.ps1
 . $env:USERPROFILE\.config\powershell\functions\gpversiongit.ps1
 . $env:USERPROFILE\.config\powershell\functions\gpconfig.ps1
+. $env:USERPROFILE\.config\powershell\functions\gp3config.ps1
 . $env:USERPROFILE\.config\powershell\functions\sphapiconfig.ps1
 . $env:USERPROFILE\.config\powershell\functions\gpapiconfig.ps1
 . $env:USERPROFILE\.config\powershell\functions\killspoty.ps1
