@@ -15,3 +15,4 @@
 . $env:USERPROFILE\.config\powershell\functions\awslogin.ps1
 . $env:USERPROFILE\.config\powershell\functions\npmcache.ps1
 . $env:USERPROFILE\.config\powershell\functions\espabila.ps1
+. $env:USERPROFILE\.config\powershell\functions\dl.ps1
